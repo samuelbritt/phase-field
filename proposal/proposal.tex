@@ -1,0 +1,137 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[alsoload=binary]{siunitx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{fancyvrb}
+\usepackage[section]{placeins}
+\usepackage{flafter}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{hyperref}
+
+\renewcommand\vec[1]{\bm{#1}}
+
+% a bit more compact
+\let\l\left
+\let\r\right
+
+% no section numbers
+\setcounter{secnumdepth}{-2}
+
+% from amssymb.sty
+\let\emtpyset\varnothing
+
+% leave notes to yourself
+\newcommand\todo[1]{\textcolor{red}\textsc{todo}: #1}
+
+% write in code
+\DefineShortVerb{\|}
+
+\title{Parallel Implementation of Phase Field Modeling for Solidification}
+\author{Sam Britt}
+\date{Oct. 12, 2012}
+
+\pagestyle{empty}
+
+\begin{document}
+  \maketitle
+  \thispagestyle{empty}
+
+  \section{Background}
+  \label{sec:background}
+
+  Solidification continues to be of great importance in materials
+  science and materials processing. Engineering alloys cast from the
+  melt undergo extreme microstructural changes during the
+  solidification process, and the resulting morphological and
+  topological characteristics direct subsequent work on the material,
+  which ultimately determines its properties. Small variations in
+  composition and cooling rates can have profound effects on the
+  resulting solidified microstructure, for example, the grain size
+  distribution, the appearance of columnar grains, or the growth of
+  dendrites. The ability to efficiently and accurately predict
+  solidification microstructures helps engineers increase the rate of
+  development of new materials and materials processing techniques.
+
+  The phase field method has been successfully applied in studying
+  various types of microstructure evolution, including solidification,
+  solid-state phase transformations, grain growth, and dislocation
+  dynamics \cite{Chen2002}. The method describes a microstructure via
+  a set of ``order parameters" $\phi_i(\vec{x}, t)$, which must sum to
+  $1$, and together represent the ``phase state" at time $t$ at
+  location $\vec x$ in the microstructure \cite{Ode2001}.  For
+  example, if there are three phases in the microstructure, and at
+  location $\vec{x}$, $\phi_1 = \phi_2 = 0$ and $\phi_3 = 1$, then the
+  microstructure at $\vec x$ is completely phase three. If, at another
+  location $\vec x'$, $\phi_1 = 0$, $\phi_2 = 0.25$, and $\phi_3 =
+  0.75$, then $\vec x'$ would be located at an interface between
+  phases two and three. Sharp interphase boundaries are avoided by
+  letting the $\phi_i$ functions vary continuously, and interface
+  movement can be modeled without tracking interfaces
+  explicitly---interface velocity simply arises due to the $\phi_i(\vec
+  x)$ parameters changing through time.
+
+  For basic solidification problems, there are only two phases
+  present: solid and liquid. Since in this case $\phi_1 = 1 - \phi_2$
+  always, the equations are usually written in terms of a single order
+  parameter $\phi$, representing the solid phase.
+
+  The time change of $\phi$ is modeled as proportional to the
+  variation in a free energy functional,
+  \begin{equation}
+    \frac{\partial \phi(\vec{x}, t)}{\partial t} =
+    M \frac{\delta F}{\delta \phi(\vec{x}, t)},
+    \label{eq:dphi-dt}
+  \end{equation}
+  where $M$ is related to the mobility of the phase, and $F$ is an
+  appropriately chosen free energy; for solidification the Helmholtz
+  free energy is often used. The variation of $F$ provides the driving
+  force for the interface movement. Increasingly complex expressions
+  for $F$ can capture bulk free energy, interfacial free energy, and
+  free energy contributions from longer range interactions, such as
+  elastic (mechanical) and electrostatic interactions between phases
+  \cite{Chen2002}. Diffusion equations and the effects of temperature
+  gradients can be solved simultaneously with Eqn.~\eqref{eq:dphi-dt}.
+  Given initial and boundary conditions, Eqn.~\eqref{eq:dphi-dt} can
+  be solved for all $\vec x$ at each timestep to track the growth and
+  shape of the solidifying precipitates.
+
+  \section{Project Description}
+  \label{sec:project_description}
+
+  The goal of this project is to implement a parallelized version of
+  the phase field model. Since the bulk of the effort will be focused
+  on building the infrastructure, the problem space will be limited to
+  a basic solidification problem in, e.g., a Cu-Al system. Since the
+  project will focus on such a well-studied system, there should be
+  sufficient microstructural data and materials parameters available
+  in the literature. However, the code should be sufficiently modular
+  so that it can be later extended; for example, more advanced
+  treatments of the free energy functional could be plugged in, or
+  more phases could be added.
+
+  Traditionally, Eqn.~\eqref{eq:dphi-dt} has been solved using finite
+  difference methods, though other methods are possible, e.g., Fourier
+  transform methods \cite{Chen2002}. For this project, I intend to use
+  the finite difference method. Since Eqn.~\eqref{eq:dphi-dt} is over
+  a spatial domain, it should parallelize quite naturally over a
+  computer cluster, where each node communicates at its boundary. One
+  advanced technique that I would like to pursue, if time permits, is
+  an adaptive mesh over the spatial domain. Since the most interesting
+  parts of the simulation are the interphase regions; that is,
+  where $\phi$ transitions from $0$ to $1$, it would be ideal if $\vec
+  x$ was discretized such that it had the finest mesh size in those
+  locations. These areas of finer mesh would travel with the
+  interfaces.
+
+  Final deliverables include the parallelized phase field method code,
+  any post-processing or visualization code, and the final report.
+
+  \bibliographystyle{elsarticle-num}
+  \bibliography{library}
+\end{document}
