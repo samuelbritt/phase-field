@@ -38,7 +38,7 @@ def central_diff(phi, x, dx):
     d2phi_dx2[-1] = d2phi_dx2[-2]
     return d2phi_dx2 / (dx * dx)
 
-def phi_np1(phi_n, x, dx, t, dt, M, eps, Df, a):
+def phi_np1(phi_n, x, dx, t, dt, M, eps, Df, a, verbose=False):
     """ returns phi(x, t=n+1) given phi(x, t=n) using finite difference method.
 
     Uses forward finite difference in time, central finite difference in x
@@ -47,14 +47,15 @@ def phi_np1(phi_n, x, dx, t, dt, M, eps, Df, a):
     fp = fprime(phi_n, Df, a)
     res = zeros_like(phi_n)
 
-    print a, Df, eps, M, dx, dt
-    f = plt.figure()
-    ax = f.add_subplot(111)
-    ax.set_title("t={}".format(t))
-    ax.plot(x, c, label="central diff")
-    ax.plot(x, phi_n, label="phi n")
-    ax.plot(x, fp, label="f'")
-    plt.show()
+    if verbose:
+        print a, Df, eps, M, dx, dt
+        f = plt.figure()
+        ax = f.add_subplot(111)
+        ax.set_title("t={}".format(t))
+        ax.plot(x, c, label="central diff")
+        ax.plot(x, phi_n, label="phi n")
+        ax.plot(x, fp, label="f'")
+        plt.show()
 
     for i, phi in enumerate(phi_n[:-1]):
         res[i] = phi_n[i] + M * dt * (eps * eps * c[i] - fp[i])
@@ -75,16 +76,18 @@ if __name__ == '__main__':
 
     x0 = -10.
     x_max = 50.
-    dx = 0.05
+    dx = 0.06
     x_all = arange(x0, x_max, dx)
 
     t0 = 0.
-    t_max = 2.
-    dt = 0.5
+    t_max = 1
+    dt = 0.00036
     t_all = arange(t0, t_max, dt)
+    plot_count = 10
+    plot_every = int(t_max / dt / plot_count) 
 
     eps = 1.
-    a = 8. * eps
+    a = 10. * eps
     Df = -10.
     tau = 2.
 
@@ -103,9 +106,11 @@ if __name__ == '__main__':
         phi_old = phi0
         M = 1. / tau
         t = t0
-        t_max = 1
+        i = 0
         while (t < t_max):
-            ax.plot(x_all, phi_old, label="$t={}$".format(t))
+            if i % plot_every == 0:
+                ax.plot(x_all, phi_old, label="$t={}$".format(t))
+            i += 1
             t = t + dt
             phi_new = phi_np1(phi_old, x_all, dx, t, dt, M, eps, Df, a) 
             phi_old = phi_new
