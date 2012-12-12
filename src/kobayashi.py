@@ -65,7 +65,7 @@ def phi_np1(phi_n, x, dx, t, dt, M, eps, Df, a, verbose=False):
 def vel_1D(tau, eps, Df, a):
     return - 6 * eps * Df / (a * tau)
 
-def phi_1D_explicit(x, t, tau, eps, Df, a):
+def phi_1D_analytical(x, t, tau, eps, Df, a):
     """ explicit solution to the diff eq
     """
     return .5 * (1 - tanh((a*(x - vel_1D(tau, eps, Df, a) * t) / 2 * eps)))
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     analytical = False
     if analytical:
         for t in t_all:
-            ax.plot(x_all, phi_1D_explicit(x_all, t, tau, eps, Df, a),
+            ax.plot(x_all, phi_1D_analytical(x_all, t, tau, eps, Df, a),
                     label="$t={}$".format(t))
     else:
         # phi_old = zeros_like(x_all)
