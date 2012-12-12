@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-r""" 1D solution of the Cahn Hilliard eqn asusming constant driving force
-    \Delta f:
+r""" 1D implicit solution solution of the Cahn Hilliard eqn asusming constant
+    driving force \Delta f:
 
         \tau \partial\phi / \partial t =
             \epsilon^2 \grad^2\phi
