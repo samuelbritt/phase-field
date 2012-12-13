@@ -10,45 +10,62 @@ import scipy.linalg as linalg
 import numpy as np
 import matplotlib.pyplot as plt
 
+def boundary(t):
+    """ values at the boundaries, x = 0 and x = n-1 """
+    return 1, 0
+
 def phi_np1(phi_n, x, dx, t, dt, M, eps, Df, a, verbose=False):
     """ returns phi(x, t=n+1) given phi(x, t=n) using finite difference method.
 
     Uses *backward* finite difference in time (implicit), central finite
     difference in x
     """
+
     mu = M * dt / (dx * dx)
     eps2 = eps * eps
-    b = phi_n - M * dt * kb.fprime(phi_n, Df, a)
 
-    d = ones_like(phi_n) * (1 + 2 * mu * eps2)
-    u = ones_like(phi_n) * (- mu * eps2)
+    # Set up matrix from 1 to n-2, and handle x = 0 and x = n-1 via boundary
+    # conditions
+    alpha, beta = boundary(t)
+    boundary_vec = zeros_like(phi_n[1:-1])
+    boundary_vec[0] = - mu * eps2 * alpha
+    boundary_vec[-1] = - mu * eps2 * beta
+
+    b = phi_n[1:-1] - M * dt * kb.fprime(phi_n[1:-1], Df, a) - boundary_vec
+
+    d = ones_like(phi_n[1:-1]) * (1 + 2 * mu * eps2)
+    u = ones_like(phi_n[1:-1]) * (- mu * eps2)
     u[0] = 0
-    l = ones_like(phi_n) * (- mu * eps2)
+    l = ones_like(phi_n[1:-1]) * (- mu * eps2)
     l[-1] = 0
 
     ab = np.matrix([u, d, l])
 
-    return linalg.solve_banded((1, 1), ab, b)
+    res = zeros_like(phi_n)
+    res[1:-1] = linalg.solve_banded((1, 1), ab, b)
+    res[0] = alpha
+    res[-1] = beta
+    return res
 
 if __name__ == '__main__':
     # require | Df | < a^2 / 6
     # require eps < a
 
     x0 = -10.
-    x_max = 50.
+    x_max = 150.
     dx = 0.06
     x_all = arange(x0, x_max, dx)
 
     t0 = 0.
-    t_max = 20
-    dt = 0.01
+    t_max = 40
+    dt = 0.02
     t_all = arange(t0, t_max, dt)
     plot_count = 10
     plot_every = int(t_max / dt / plot_count) 
 
     eps = 1.
-    a = 10. * eps
-    Df = -10.
+    a = 6. * eps
+    Df = -5.
     tau = 2.
 
     phi0 = 0.5 * (1 - tanh(a * x_all / (2 * eps)))
