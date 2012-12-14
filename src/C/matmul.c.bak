@@ -1,0 +1,175 @@
+/* 
+ * Sam Brit
+ * CS 4777
+ * HW 3
+ * Sept 24, 2012
+ */
+
+/*
+ * Multiply two matrices using OpenMPI.
+ */
+
+#include "matrix.h"
+#include "common.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <mpi.h>
+
+#define MASTER 0 /* the master node rank */
+static int mat_size;
+static int proc_count;
+
+/* Broadcasts a matrix, row by row, from `from_rank` */
+static void
+bcast_matrix(struct matrix *mat, int from_rank)
+{
+	int i;
+	for(i = 0; i < mat->rows; i++) {
+		if (MPI_SUCCESS != MPI_Bcast(mat->arr[i], mat->cols, MPI_INT,
+					     from_rank, MPI_COMM_WORLD))
+			fail("MPI_Bcast");
+	}
+}
+
+/* Sends a matrix, row by row, to `to_rank` */
+static void
+send_matrix(struct matrix *mat, int to_rank)
+{
+	int i;
+	for(i = 0; i < mat->rows; i++) {
+		if (MPI_SUCCESS != MPI_Send(mat->arr[i], mat->cols, MPI_INT,
+					    to_rank, 0, MPI_COMM_WORLD))
+			fail("MPI_Send");
+	}
+}
+
+/* Receive a matrix, row by row, from `from_rank` */
+static void
+recv_matrix(struct matrix *mat, int from_rank)
+{
+	MPI_Status status;
+	int i;
+	for(i = 0; i < mat->rows; i++) {
+		if (MPI_SUCCESS != MPI_Recv(mat->arr[i], mat->cols, MPI_INT,
+					    from_rank, 0, MPI_COMM_WORLD,
+					    &status))
+			fail("MPI_Recv");
+	}
+}
+
+/* number of rows in C each proc will calculate. */
+static int
+rows_per_proc()
+{
+	return mat_size / proc_count;
+}
+
+/* Routine for the master node */
+static void
+run_master()
+{
+	struct matrix *A = get_rand_square_mat(mat_size);
+	struct matrix *B = get_rand_square_mat(mat_size);
+	struct matrix *C = get_square_matrix(mat_size);
+
+	/* Each worker is responsible for calculating certain rows in C.  Assume
+	 * the matrix size is evenly divisible by the number of processors. */
+	int r = rows_per_proc();
+
+	struct matrix transfer; /* holds data to send to/recv from other procs */
+	transfer.rows = r;
+	transfer.cols = mat_size;
+	int i;
+	for (i = 1; i < proc_count; ++i) {
+		transfer.arr = &A->arr[i*r];
+		send_matrix(&transfer, i);
+	}
+	bcast_matrix(B, MASTER);
+
+	/* myA and myC are just "windows" into the real A and C */
+	struct matrix myA = *A;
+	myA.rows = r;
+	struct matrix myC = *C;
+	myC.rows = r;
+
+	/* master needs to do work too... */
+	matmul(&myC, &myA, B);
+
+	for (i = 1; i < proc_count; ++i) {
+		transfer.arr = &C->arr[i*r];
+		recv_matrix(&transfer, i);
+	}
+
+	printf("A\n");
+	print_matrix(A, 3);
+
+	printf("B\n");
+	print_matrix(B, 3);
+
+	printf("C\n");
+	print_matrix(C, 7);
+}
+
+/* Routine for worker nodes */
+static void
+run_worker()
+{
+	struct matrix *B = get_square_matrix(mat_size);
+	bcast_matrix(B, MASTER);
+
+	int r = rows_per_proc();
+	struct matrix *myA = get_matrix(r, mat_size);
+	recv_matrix(myA, MASTER);
+
+	struct matrix *myC = get_matrix(r, mat_size);
+	matmul(myC, myA, B);
+	send_matrix(myC, MASTER);
+}
+
+/* returns true if current process is master */
+static bool
+is_master(int rank)
+{
+	return rank == MASTER;
+}
+
+/* initializes mpi */
+static void
+init_mpi(int *argc, char **argv[], int *rank, int *comm_size)
+{
+	MPI_Init(argc, argv);
+	MPI_Comm_rank(MPI_COMM_WORLD, rank);
+	MPI_Comm_size(MPI_COMM_WORLD, comm_size);
+}
+
+/* parses arguments */
+static void
+parse_args(int argc, char *argv[])
+{
+	char usage[1024];
+	sprintf(usage, "Usage: %s <matrix_size>", argv[0]);
+
+	if (argc < 2) {
+		fprintf(stderr, "%s\n", usage);
+		exit(EXIT_FAILURE);
+	}
+
+	mat_size = strtol(argv[1], NULL, 10);
+}
+
+int main(int argc, char *argv[])
+{
+	int rank;
+	init_mpi(&argc, &argv, &rank, &proc_count);
+	parse_args(argc, argv);
+
+	if (is_master(rank)) {
+		run_master();
+	} else {
+		run_worker();
+	}
+
+	MPI_Finalize();
+}
