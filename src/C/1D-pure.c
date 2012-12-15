@@ -10,6 +10,7 @@
 
 #include <clapack.h>
 #include <cblas.h>
+#include <mpi.h>
 
 #define PHI_SOLID =  0
 #define PHI_LIQUID = 1

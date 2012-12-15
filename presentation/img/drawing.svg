@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3794"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path3797"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3791"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient2999">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3001" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3003" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2999"
+       id="linearGradient3005"
+       x1="182.10954"
+       y1="830.98181"
+       x2="183.58795"
+       y2="830.98181"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4069384,0,0,1.4078634,-266.68125,-353.97506)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2999"
+       id="linearGradient3009"
+       gradientUnits="userSpaceOnUse"
+       x1="162.84567"
+       y1="830.2193"
+       x2="207.15857"
+       y2="830.2193"
+       gradientTransform="matrix(1.4069384,0,0,1.4078634,224.92184,-353.97506)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="23.735119"
+     inkscape:cy="421.71102"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="false"
+     inkscape:window-width="1325"
+     inkscape:window-height="884"
+     inkscape:window-x="4"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient3005);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985"
+       width="331.63547"
+       height="112.62907"
+       x="-168.19556"
+       y="755.52899"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="755.52899"
+       x="323.4075"
+       height="112.62907"
+       width="331.63547"
+       id="rect3007"
+       style="fill:url(#linearGradient3009);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-mid:none;marker-end:url(#Arrow1Mend)"
+       d="m -168.19556,527.25396 0,192.07279 331.63548,0"
+       id="path3015"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       x="40.714287"
+       y="712.36218"
+       id="text4967"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="40.714287"
+         y="712.36218"
+         id="tspan4971" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       x="47.857143"
+       y="701.64789"
+       id="text4975"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="47.857143"
+         y="701.64789"
+         id="tspan4979" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m -167.19061,692.17511 156.773144,0 0,-118.66278 138.683926,0"
+       id="path4994"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:30.96432114px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       x="-189.21025"
+       y="701.81726"
+       id="text4996"
+       sodipodi:linespacing="125%"
+       transform="scale(0.99967142,1.0003287)"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4998"
+         x="-189.21025"
+         y="701.81726">0</tspan></text>
+    <image
+       y="604.02814"
+       x="-232.38623"
+       id="image5012"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAtCAYAAACwNXvbAAAABHNCSVQICAgIfAhkiAAAAlVJREFU
+WIW9l79rFEEUxz/vWDgInHDgVYGwWIhN0E6EFDY2QkotBPHq61N7f0CKNBap7OysgpVV0the/oKt
+7IQUVmLxLG7W7L6dX5dZfbDM3cx33ve9992ZnRFV5X/YZAwnIjITkUZEZv+UCHgL1MC9YDBjlE5E
+NsBjYKIBh8UZicjEkVyFSEYhAg5c+zEGGoPopWu/xEDFGuXoA4UZ5epTTESmPmMQtfp8TQGLNMrV
+BwoyEhEhUx+Aakfn+8AL4BnwyHUfiMg58A34rKo/vZNVNfoAU2ANaOC5Mf83wHzgJ0FiCU6BmRtr
+XJ+wleC1wS6TRMC+J8q9znjl+i/NvKoTgALnQSLg2GbhwTz0Re3GJmb+0YAIWBrQKlHSRWC8V8Ye
+USfKYCYd7F99AuOV8VW3A2LfpAiJVx+Dsf5O2gX7nr49JWwPXJvc36zZNIPZ5OgTy+i5IX6VCOyd
+a39EMPd9nZeGfVKij8MdGp/HsF2MvVcx4iC4fgxuY4imdve+TpTtjWuD5wMRmbPd1Vu7UtVflr1J
+RBpdPw7zyWSzcP09jTaF68fukaedMVY5GqX0YbhM1IwzNYB61/XjIwGmPYwDJrMK6QPMDcENUA3m
+dyZ0tWq64JA+DD9262DpzcSVmXgC7HG7ANeu1Jag8ZU0SOTIZsCFp+a+5yKkaZLIlOvQRd8eQJbA
+EbCwWqWerAOkiChwrapPkuCAJQ+QIlK7n2d3JckiIvP+k7Jk6XY5X8csmtEu958iIm7vPx9KSHKI
+2s968v6TsqhGY+mTQ1QDv1X1ewkJwB+UlvgZdjCNEgAAAABJRU5ErkJggg==
+"
+       height="46.123875"
+       width="26.631842"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5015"
+       y="583.59558"
+       x="-189.21025"
+       style="font-size:30.96432114px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       xml:space="preserve"
+       transform="scale(0.99967142,1.0003287)"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="583.59558"
+         x="-189.21025"
+         id="tspan5017"
+         sodipodi:role="line">1</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5021"
+       d="m 322.22297,527.25396 0,192.07279 331.63548,0"
+       style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-mid:none;marker-end:url(#Arrow1Mend)"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5023"
+       d="m 323.22792,692.17511 76.99944,0 c 0,0 49.41162,6.04742 73.0229,-11.7328 23.61127,-17.78022 15.56191,-75.18768 40.14952,-93.41949 24.58763,-18.23182 62.34855,-13.51049 62.34855,-13.51049 l 42.93666,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       sodipodi:nodetypes="cczzcc"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5025"
+       y="701.81726"
+       x="301.36948"
+       style="font-size:30.96432114px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       xml:space="preserve"
+       transform="scale(0.99967142,1.0003287)"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         y="701.81726"
+         x="301.36948"
+         id="tspan5027"
+         sodipodi:role="line">0</tspan></text>
+    <image
+       width="26.631842"
+       height="46.123875"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAtCAYAAACwNXvbAAAABHNCSVQICAgIfAhkiAAAAlVJREFU
+WIW9l79rFEEUxz/vWDgInHDgVYGwWIhN0E6EFDY2QkotBPHq61N7f0CKNBap7OysgpVV0the/oKt
+7IQUVmLxLG7W7L6dX5dZfbDM3cx33ve9992ZnRFV5X/YZAwnIjITkUZEZv+UCHgL1MC9YDBjlE5E
+NsBjYKIBh8UZicjEkVyFSEYhAg5c+zEGGoPopWu/xEDFGuXoA4UZ5epTTESmPmMQtfp8TQGLNMrV
+BwoyEhEhUx+Aakfn+8AL4BnwyHUfiMg58A34rKo/vZNVNfoAU2ANaOC5Mf83wHzgJ0FiCU6BmRtr
+XJ+wleC1wS6TRMC+J8q9znjl+i/NvKoTgALnQSLg2GbhwTz0Re3GJmb+0YAIWBrQKlHSRWC8V8Ye
+USfKYCYd7F99AuOV8VW3A2LfpAiJVx+Dsf5O2gX7nr49JWwPXJvc36zZNIPZ5OgTy+i5IX6VCOyd
+a39EMPd9nZeGfVKij8MdGp/HsF2MvVcx4iC4fgxuY4imdve+TpTtjWuD5wMRmbPd1Vu7UtVflr1J
+RBpdPw7zyWSzcP09jTaF68fukaedMVY5GqX0YbhM1IwzNYB61/XjIwGmPYwDJrMK6QPMDcENUA3m
+dyZ0tWq64JA+DD9262DpzcSVmXgC7HG7ANeu1Jag8ZU0SOTIZsCFp+a+5yKkaZLIlOvQRd8eQJbA
+EbCwWqWerAOkiChwrapPkuCAJQ+QIlK7n2d3JckiIvP+k7Jk6XY5X8csmtEu958iIm7vPx9KSHKI
+2s968v6TsqhGY+mTQ1QDv1X1ewkJwB+UlvgZdjCNEgAAAABJRU5ErkJggg==
+"
+       id="image5029"
+       x="258.03232"
+       y="604.02814"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:30.96432114px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino;-inkscape-font-specification:Palatino"
+       x="301.36948"
+       y="583.59558"
+       id="text5031"
+       sodipodi:linespacing="125%"
+       transform="scale(0.99967142,1.0003287)"
+       inkscape:export-filename="/Users/sam/src/CS_4777/phase-field/img/diffuse_interface.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan5033"
+         x="301.36948"
+         y="583.59558">1</tspan></text>
+  </g>
+</svg>
